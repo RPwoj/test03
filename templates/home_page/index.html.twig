@@ -15,17 +15,21 @@
 {% endif %}
 
 
-<ul>
+<div class="cards-holder">
     {% for user in users %}
-        {# <li><a href="{{ path('app_profile') }}/{{user.id|e }}">{{ user.username|e }}</a></li> #}
-        <li><a href="{{ path('app_profile', {id: user.id}) }}">{{ user.username|e }}</a></li>
-    {% endfor %}
-</ul>
-{% for post in posty %}
-{{post.title}}
-{{post.description}}
 
+        <a href="{{ path('app_profile', {id: user.id}) }}">
+            <div class="card">
+                {{ user.username|e }}
+                <img height="50" width="50" src="{{ asset('uploads/avatars/' ~ user.avatar) }}" alt="avatar" />
+            </div>
+        </a>
     {% endfor %}
+</div>
+{% for post in posty %}
+    {{post.title}}
+    {{post.description}}
+{% endfor %}
 
 
 <ul>

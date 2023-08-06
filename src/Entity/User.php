@@ -152,6 +152,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    #[ORM\Column(type: 'string')]
+    private string $avatar;
+
+    public function getavatar(): string
+    {
+        return $this->avatar;
+    }
+
+    public function setavatar(string $avatar): self
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+
+
     /**
      * @return Collection<int, Post>
      */

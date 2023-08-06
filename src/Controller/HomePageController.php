@@ -45,7 +45,11 @@ class HomePageController extends AbstractController
 
         } 
 
-        $users = $entityManager->getRepository(User::class)->findall();
+        $users = $entityManager->getRepository(User::class)->findBy(
+            [],
+            ['id' => 'DESC'],
+            4
+        );
 
         $userPosts = '';
         if($user) {
