@@ -16,6 +16,12 @@ class Animal
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $bith_date = null;
+
+    #[ORM\ManyToOne(inversedBy: 'Animals')]
+    private ?User $owner = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -29,6 +35,30 @@ class Animal
     public function setName(string $name): static
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getBithDate(): ?string
+    {
+        return $this->bith_date;
+    }
+
+    public function setBithDate(?string $bith_date): static
+    {
+        $this->bith_date = $bith_date;
+
+        return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): static
+    {
+        $this->owner = $owner;
 
         return $this;
     }
