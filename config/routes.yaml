@@ -3,3 +3,8 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+
+my_ajax_route:
+  path: /get-data
+  controller: App\Controller\RespController::getData
