@@ -7,4 +7,4 @@ controllers:
 
 my_ajax_route:
   path: /get-data
-  controller: App\Controller\RespController::getData
+  controller: App\Controller\AddFriendAjaxController::getData

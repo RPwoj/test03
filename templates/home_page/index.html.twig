@@ -9,7 +9,12 @@
 </style>
 
 <div class="example-wrapper">
-  
+
+
+
+
+<div class=""></div>
+<a href="{{ path('app_login') }}">login</a> 
 {% if app.user %}
     {{ form(form) }}
 {% endif %}
@@ -29,7 +34,9 @@ Jestescie znajomymi
     {% endif %}
 </a>
 {% endfor %}
-
+{% for postsFriendsId in postsFriendsIds %}
+<br> - {{postsFriendsId}} - <br>
+{% endfor %}
 
 
 {# {% for key, value in friends %}
@@ -40,12 +47,13 @@ Jestescie znajomymi
 {% endfor %} #}
 
 <div class="cards-holder">
-    {% for user in users %}
+    <h3 class="card-title">Ostatnio zarejestrowani użytkownicy</h3>
+    {% for lastRegisteredUser in lastRegisteredUsers %}
 
-        <a href="{{ path('app_profile', {id: user.id}) }}">
+        <a href="{{ path('app_profile', {id: lastRegisteredUser.id}) }}">
             <div class="card">
-                {{ user.username|e }}
-                <img height="50" width="50" src="{{ asset('uploads/avatars/' ~ user.avatar) }}" alt="avatar" />
+                {{ lastRegisteredUser.username|e }}
+                <img height="50" width="50" src="{{ asset('uploads/avatars/' ~ lastRegisteredUser.avatar) }}" alt="avatar" />
             </div>
         </a>
     {% endfor %}
@@ -54,17 +62,5 @@ Jestescie znajomymi
     {{post.title}}
     {{post.description}}
 {% endfor %}
-
-
-<ul>
-    {# {% for animal in animals %} #}
-            {# <li>{{animal.owner}}</li> #}
-    {# {% endfor %} #}
-</ul>
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/test03/src/Controller/HomePageController.php'|file_link(0) }}">src/Controller/HomePageController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/test03/templates/home_page/index.html.twig'|file_link(0) }}">templates/home_page/index.html.twig</a></code></li>
-    </ul>
 </div>
 {% endblock %}

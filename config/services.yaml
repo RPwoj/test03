@@ -24,6 +24,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-    App\EventListener\MyPageLoadListener:
-        tags:
+    # App\EventListener\MyPageLoadListener:
+    #     tags:
             # - { name: kernel.event_listener, event: kernel.request, method: onPageLoad }
+
+    App\Service\FriendsListGenerator:
+        public: true

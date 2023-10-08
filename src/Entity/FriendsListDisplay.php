@@ -3,9 +3,11 @@
 namespace App\Entity;
 
 
+use App\Entity\FriendCreator;
 
-class FriendCreator
+class FriendFriendListDisplay
 {
+
     public $id;
     public $name;
     public $status;
@@ -16,4 +18,7 @@ class FriendCreator
 
     }
 
+    public function getInfo() {
+        return $this->id;
+    }
 }

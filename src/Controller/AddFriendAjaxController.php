@@ -13,7 +13,7 @@ use App\Entity\User;
 
 
 
-class RespController extends AbstractController
+class AddFriendAjaxController extends AbstractController
 {
     public function getData(Request $request, EntityManagerInterface $entityManager, UserInterface $user = null): Response
     {
